@@ -17,6 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private PlatziUserDetailsService platziUserDetailsService;
 
     @Autowired
+
     private JwtFilterRequest jwtFilterRequest;
 
     @Override
@@ -30,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated().and().sessionManagement().
                 sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(JwtFilterRequest, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
