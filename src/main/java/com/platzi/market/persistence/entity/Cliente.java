@@ -8,12 +8,14 @@ import java.util.List;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     private String nombre;
+
     private String apellidos;
-    private Integer celular;
+
+    private Long celular;
+
     private String direccion;
 
     @Column(name = "correo_electronico")
@@ -46,11 +48,11 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public Integer getCelular() {
+    public Long getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(Long celular) {
         this.celular = celular;
     }
 

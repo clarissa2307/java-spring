@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Table(name = "compras")
 public class Compra {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
@@ -23,7 +22,24 @@ public class Compra {
     private String medioPago;
 
     private String comentario;
+
     private String estado;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<ComprasProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ComprasProducto> producto) {
+        this.productos = producto;
+    }
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
@@ -78,5 +94,6 @@ public class Compra {
 
     public void setEstado(String estado) {
         this.estado = estado;
+
     }
 }

@@ -7,10 +7,12 @@ import javax.persistence.*;
 public class ComprasProducto {
 
     @EmbeddedId
-    private ComprasProductoPK id;
+    private ComprasProductosPK id;
 
     private Integer cantidad;
+
     private Double total;
+
     private Boolean estado;
 
     @ManyToOne
@@ -18,15 +20,31 @@ public class ComprasProducto {
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "id_producto", insertable = true, updatable = false)
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
     private Producto producto;
 
-    public ComprasProductoPK getId() {
+    public ComprasProductosPK getId() {
         return id;
     }
 
-    public void setId(ComprasProductoPK id) {
+    public void setId(ComprasProductosPK id) {
         this.id = id;
     }
 
