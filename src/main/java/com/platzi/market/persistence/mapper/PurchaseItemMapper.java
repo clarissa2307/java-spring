@@ -1,6 +1,5 @@
 package com.platzi.market.persistence.mapper;
 
-import com.platzi.market.domain.service.Purchase;
 import com.platzi.market.domain.service.PurchaseItem;
 import com.platzi.market.persistence.entity.ComprasProducto;
 import org.mapstruct.InheritInverseConfiguration;
@@ -10,7 +9,6 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = {ProductMapper.class})
 public interface PurchaseItemMapper {
-
     @Mappings({
             @Mapping(source = "id.idProducto", target = "productId"),
             @Mapping(source = "cantidad", target = "quantity"),
@@ -22,7 +20,7 @@ public interface PurchaseItemMapper {
     @Mappings({
             @Mapping(target = "compra", ignore = true),
             @Mapping(target = "producto", ignore = true),
-            @Mapping(target = "id.idCompra", ignore = true),
+            @Mapping(target = "id.idCompra", ignore = true)
     })
-    ComprasProducto toComprasProducto(Purchase item);
+    ComprasProducto toComprasProducto(PurchaseItem items);
 }
